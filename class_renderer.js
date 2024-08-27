@@ -18,7 +18,7 @@ var class_renderer =
     [ "drawLine", "class_renderer.html#a7a834c0557783538d8a7aeb8a8e40c09", null ],
     [ "drawQuad", "class_renderer.html#a8dbb8761fb312fda9458695156c22409", null ],
     [ "drawSphere", "class_renderer.html#aef61eb3bf93e08098b15b0122629ab34", null ],
-    [ "drawWireCube", "class_renderer.html#a311857ddcd83e99dad904a1b6e0e3ba9", null ],
+    [ "drawWireCube", "class_renderer.html#a11bd8df9ed3fbf58efe3a21fb70ec1c5", null ],
     [ "imageCount", "class_renderer.html#a977d48a68943f2d28ae208973f7aeff1", null ],
     [ "isRunning", "class_renderer.html#acf56c18f874aeb7c403bbb8ed1bb58c1", null ],
     [ "lineCount", "class_renderer.html#af545029c609fd3f68353fc35a9740cec", null ],

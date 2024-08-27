@@ -122,9 +122,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> ()</
 <tr class="memitem:a214634393615d1ec54b59c955436be6b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a214634393615d1ec54b59c955436be6b">simulateStep</a> ()</td></tr>
 <tr class="memdesc:a214634393615d1ec54b59c955436be6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulate a step in the scene. Gets called every frame before onDraw.  <br /></td></tr>
 <tr class="separator:a214634393615d1ec54b59c955436be6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bf3ea0f7ba0a79b628bc088a2402bc9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a9bf3ea0f7ba0a79b628bc088a2402bc9">onDraw</a> (<a class="el" href="class_renderer.html">Renderer</a> &amp;renderer)</td></tr>
-<tr class="memdesc:a9bf3ea0f7ba0a79b628bc088a2402bc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the scene. Gets called every frame after simulateStep.  <br /></td></tr>
-<tr class="separator:a9bf3ea0f7ba0a79b628bc088a2402bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a582f8de69bc8d07b3747fc4236a26cc1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a582f8de69bc8d07b3747fc4236a26cc1">onDraw</a> (<a class="el" href="class_renderer.html">Renderer</a> &amp;renderer)</td></tr>
+<tr class="memdesc:a582f8de69bc8d07b3747fc4236a26cc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw the scene. Gets called every frame after simulateStep.  <br /></td></tr>
+<tr class="separator:a582f8de69bc8d07b3747fc4236a26cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abda7c8bc0e792d946d9f1ada7d8e8d85"><td class="memItemLeft" align="right" valign="top"><a id="abda7c8bc0e792d946d9f1ada7d8e8d85" name="abda7c8bc0e792d946d9f1ada7d8e8d85"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>onGUI</b> ()</td></tr>
 <tr class="memdesc:abda7c8bc0e792d946d9f1ada7d8e8d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define the GUI for the scene. Gets called every frame after onDraw. <br /></td></tr>
@@ -135,8 +135,8 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>onGUI</b> ()<
 <p>This class is the base class for all scenes in the application. When creating a new scene, derive from this class. Add the new scene to the <a class="el" href="_scene_index_8h_source.html">SceneIndex.h</a> file.</p>
 <p>Feel free to modify the non virtual functions for functionality shared between scenes. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9bf3ea0f7ba0a79b628bc088a2402bc9" name="a9bf3ea0f7ba0a79b628bc088a2402bc9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bf3ea0f7ba0a79b628bc088a2402bc9">&#9670;&#160;</a></span>onDraw()</h2>
+<a id="a582f8de69bc8d07b3747fc4236a26cc1" name="a582f8de69bc8d07b3747fc4236a26cc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a582f8de69bc8d07b3747fc4236a26cc1">&#9670;&#160;</a></span>onDraw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -145,7 +145,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>onGUI</b> ()<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void Scene::onDraw </td>
+          <td class="memname">void Scene::onDraw </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_renderer.html">Renderer</a> &amp;&#160;</td>
           <td class="paramname"><em>renderer</em></td><td>)</td>
@@ -154,7 +154,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>onGUI</b> ()<
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -192,8 +192,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>onGUI</b> ()<
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>Scenes/<a class="el" href="_scene_8h_source.html">Scene.h</a></li>
+<li>Scenes/Scene.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

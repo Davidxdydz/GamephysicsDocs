@@ -11,5 +11,5 @@ var searchData=
   ['drawline_8',['drawLine',['../class_renderer.html#a9fe102f5a97b649e3152a9c521059dd8',1,'Renderer::drawLine(glm::vec3 position1, glm::vec3 position2, glm::vec3 color)'],['../class_renderer.html#a7a834c0557783538d8a7aeb8a8e40c09',1,'Renderer::drawLine(glm::vec3 position1, glm::vec3 position2, glm::vec3 color1, glm::vec3 color2)']]],
   ['drawquad_9',['drawQuad',['../class_renderer.html#a8dbb8761fb312fda9458695156c22409',1,'Renderer']]],
   ['drawsphere_10',['drawSphere',['../class_renderer.html#aef61eb3bf93e08098b15b0122629ab34',1,'Renderer']]],
-  ['drawwirecube_11',['drawWireCube',['../class_renderer.html#a311857ddcd83e99dad904a1b6e0e3ba9',1,'Renderer']]]
+  ['drawwirecube_11',['drawWireCube',['../class_renderer.html#a11bd8df9ed3fbf58efe3a21fb70ec1c5',1,'Renderer']]]
 ];
