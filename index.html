@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game Physics Template: Main Page</title>
+<title>Game Physics Template: The Game Physics Template - An Introduction</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -91,10 +91,129 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">Game Physics Template Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">The Game Physics Template - An Introduction </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md__readme"></a></p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Software Setup:</h1>
+<ol type="1">
+<li>install <a href="https://cmake.org/download/">CMake</a></li>
+<li><p class="startli">install a C++ compiler (if you don't have one already), for example:</p><ul>
+<li>Windows: <a href="https://visualstudio.microsoft.com/downloads/">Visual Studio</a></li>
+<li>macOS: <a href="https://developer.apple.com/xcode/">Xcode</a></li>
+<li>Linux: <a href="https://gcc.gnu.org/">GCC</a> <br  />
+</li>
+</ul>
+<p class="startli">... or whatever you prefer</p>
+</li>
+<li>install <a href="https://git-scm.com/downloads">Git</a></li>
+<li>clone this repository <b>TODO replace this with the real location</b> <div class="fragment"><div class="line">git clone https://github.com/Davidxdydz/GamePhysicsTemplate.git</div>
+</div><!-- fragment --></li>
+<li>Open the project in your IDE, for example [Visual Studio Code] (<a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a>), and add [src](src) and [thirdparty](thirdparty) to the include directories. This is just for autocomplete. The build will work without it.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Building and Running the Project</h1>
+<ol type="1">
+<li>Everytime you add new files, and once in the beginning, run <div class="fragment"><div class="line">cmake . -B build</div>
+</div><!-- fragment --></li>
+<li>Build the project <div class="fragment"><div class="line">cmake --build build</div>
+</div><!-- fragment --> The output will tel you where the executable is located. You can run it from the command line or from your IDE.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Project Structure</h1>
+<p>Each exercise has its own branch, usually only providing some additional code needed for the exercise. <br  />
+ The intro branch already has the completed tutorial code, so you can start from the main branch to go along.</p>
+<p>The relevant directories:</p><ul>
+<li>[Scenes](Scenes) should contain all code relevant to your submission.</li>
+<li>[src](src) contains the engine source code. Feel free to take a look and play around with it. Make sure your submissions run without changes to theses files.</li>
+<li>[thirdparty](thirdparty) contains external libraries, including <code>glm</code> for vector math and <code>imgui</code> for UI.</li>
+<li>[resources](resources) contains all resources loaded at runtime, such as shaders and colormaps. Especially the postprocessing shader is fun to play with.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Basics</h1>
+<h2><a class="anchor" id="autotoc_md5"></a>
+&lt;tt&gt;glm&lt;/tt&gt; math library</h2>
+<p>This library is used for all vector, matrix and quaternion math. <br  />
+</p>
+<p>Include <code>&lt;glm/glm.hpp&gt;</code> to get started. <br  />
+</p>
+<p>All vectors and matrices have loads of useful overloads, such as <code>glm::vec3(0)</code> for a zero vector. <code>vec4</code> can be implicitly cast to <code>vec3</code> and <code>vec2</code>, and so on. <br  />
+</p>
+<h3><a class="anchor" id="autotoc_md6"></a>
+Useful knowledge:</h3>
+<ul>
+<li>The quaternion constructor is <code>glm::quat(w,x,y,z)</code>, while the list initializer is <code>glm::quat test = {x,y,z,w}</code></li>
+<li>You can include <code>&lt;glm/gtx/string_cast.hpp&gt;</code> to print vectors, matrices and quaternions with <code>glm::to_string(vec)</code></li>
+<li>The <code>glm::</code> namespace contains many useful functions, such as <code>glm::length(vec)</code>, <code>glm::normalize(vec)</code>, <code>glm::dot(vec1, vec2)</code>, <code>glm::cross(vec1, vec2)</code>, <code>glm::inverse(matrix)</code>, <code>glm::transpose(matrix)</code> and many more.</li>
+<li><code>glm</code> has math functions that work on vectors, e.g. <code>glm::sin(vec)</code></li>
+<li>Instead of <code>using namespace glm</code>, you can use private <code>using vec3 = glm::vec3</code> in your class header to avoid conflicts with other libraries.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md7"></a>
+&lt;tt&gt;imgui&lt;/tt&gt; UI library</h2>
+<p>This library is used for all UI elements. It should only be used in the <code>onGui</code> method of a scene.</p>
+<p>Include <code>&lt;imgui.h&gt;</code> to get started.</p>
+<h3><a class="anchor" id="autotoc_md8"></a>
+Useful knowledge:</h3>
+<ul>
+<li>You can use logarithmic sliders with <code>ImGui::SliderFloat("Slider", &amp;value, min, max, "%.3f", ImGuiSliderFlags_Logarithmic)</code></li>
+<li>ImGui has many functions for interactiviy, such as <code>ImGui::IsKeyDown()</code>, <code>ImGui::GetMousePos()</code> and many more.</li>
+<li><code>ImGui::GetIO()</code> contains more information about the input, even <code>PenPressure</code> and <code>DisplaySize</code>.</li>
+<li>Use <code>using namespace ImGui::</code> <b>inside</b> the <code>onGui</code> method to avoid writing <code>ImGui::</code> all the time.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md9"></a>
+Drawing objects</h2>
+<p>The draw methods are documented in the <a href="https://davidxdydz.github.io/GamephysicsDocs/class_renderer.html#details">Renderer documantation</a>. The <code>renderer</code> object is provided in the onDraw method of a scene. <br  />
+ You can use it to draw lines, ellipsoids, spheres, cubes, quads, and images.</p>
+<h3><a class="anchor" id="autotoc_md10"></a>
+You have to keep track of the objects yourself!</h3>
+<p>How you do this is up to you. <br  />
+ A memory safe way to do this would be to store the objects in a vector in your scene class. Initialize the objects in <code>init()</code>, modify them in the <code>simulateStep()</code> method, and visualize them in the <code>onDraw()</code> method. </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;glm/glm.hpp&gt;</span></div>
+<div class="line">std::vector&lt;YourObject&gt; objects;</div>
+<div class="line"><span class="comment">// or</span></div>
+<div class="line">std::vector&lt;glm::vec3&gt; positions;</div>
+<div class="line"><span class="comment">// ... or whatever you need</span></div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md11"></a>
+Drawing Images</h3>
+<p>You can draw Images with the <code>drawImage</code> method. </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> onDraw(<a class="code hl_class" href="class_renderer.html">Renderer</a> &amp;renderer)<span class="keyword"> override </span>{</div>
+<div class="line">    <span class="comment">// the data should not be declared in the draw method</span></div>
+<div class="line">    std::vector&lt;float&gt; data = {1,0,0,0,1,0};</div>
+<div class="line">    <span class="keywordtype">int</span> width = 3;</div>
+<div class="line">    <span class="keywordtype">int</span> height = 2;</div>
+<div class="line">    renderer.<a class="code hl_function" href="class_renderer.html#abc8b573b398c762206153df6bf9cd56a">drawImage</a>(data, height, width);</div>
+<div class="line">    <span class="comment">// This will draw an image to the full screen looking like this:</span></div>
+<div class="line">    <span class="comment">// 1 0 0</span></div>
+<div class="line">    <span class="comment">// 0 1 0</span></div>
+<div class="line">    <span class="comment">// The colors are defined by the optional colormap parameter.</span></div>
+<div class="line">    <span class="comment">// Note that the pixels will be stretched, if the aspect ratio of the image does not match the aspect ratio of the screen.</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aclass_renderer_html"><div class="ttname"><a href="class_renderer.html">Renderer</a></div><div class="ttdoc">Renderer.</div><div class="ttdef"><b>Definition</b> Renderer.h:24</div></div>
+<div class="ttc" id="aclass_renderer_html_abc8b573b398c762206153df6bf9cd56a"><div class="ttname"><a href="class_renderer.html#abc8b573b398c762206153df6bf9cd56a">Renderer::drawImage</a></div><div class="ttdeci">void drawImage(std::vector&lt; float &gt; data, int height, int width, Colormap colormap=Colormap(&quot;hot&quot;), glm::vec2 screenPosition={0, 0}, glm::vec2 screenSize={1, 1})</div><div class="ttdoc">Draw an image in the next frame.</div><div class="ttdef"><b>Definition</b> Renderer.cpp:609</div></div>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md12"></a>
+Adding a new scene or source file</h2>
+<h3><a class="anchor" id="autotoc_md13"></a>
+Add scene:</h3>
+<ol type="1">
+<li>Create a new class that inherits from <code><a class="el" href="class_scene.html" title="Scene base class. Run cmake . -B build after adding new files to the scenes folder">Scene</a></code> in the [Scenes](Scenes) directory.</li>
+<li>Add the scene to the <code>SceneIndex</code> in <a href="Scenes/SceneIndex.h">Scenes/SceneIndex.h</a>. <div class="fragment"><div class="line">{<span class="stringliteral">&quot;The Scene&#39;s Name&quot;</span>, creator&lt;TheSceneClass&gt;()},</div>
+</div><!-- fragment --></li>
+<li>Run <code>cmake . -B build</code> again before building the project.</li>
+<li>override only the functions you need and implement them in the scene's source file. <div class="fragment"><div class="line">...</div>
+<div class="line">public:</div>
+<div class="line">    <span class="keywordtype">void</span> onDraw(<a class="code hl_class" href="class_renderer.html">Renderer</a> &amp;renderer) <span class="keyword">override</span>;</div>
+<div class="line">    <span class="keywordtype">void</span> onGui() <span class="keyword">override</span>;</div>
+</div><!-- fragment --></li>
+<li>After building, you can select the scene in the UI.</li>
+</ol>
+<h3><a class="anchor" id="autotoc_md14"></a>
+Add source file:</h3>
+<ol type="1">
+<li>Add the source file to the [Scenes](Scenes) directory.</li>
+<li>Run <code>cmake . -B build</code> again before building the project. </li>
+</ol>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

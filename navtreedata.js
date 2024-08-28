@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "Game Physics Template", "index.html", [
+    [ "The Game Physics Template - An Introduction", "index.html", "index" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
